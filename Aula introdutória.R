@@ -1,31 +1,34 @@
-# AULA INTRODUT”RIA DE R
+# AULA INTRODUT√ìRIA DE R
 
-# InstalaÁ„o do R Base e do RStudio
+# Instala√ß√£o do R Base e do RStudio
 # Personalizar o R Studio  
-# A import‚ncia dos coment·rios // ctrl(cmd) + shift + C
-# O R È, dentre outras coisas, um calculadora
+# A import√¢ncia dos coment√°rios // ctrl(cmd) + shift + C
+# O R √©, dentre outras coisas, um calculadora
 
 # Ctrl(Command) + Enter para rodar o script
 
-# AdiÁ„o
+# Tirar nota√ß√£o cient√≠fica
+options(scipen = 999)
+
+# Adi√ß√£o
 5 + 5 
 
-# SubtraÁ„o
+# Subtra√ß√£o
 5 - 5 
 
-# MultiplicaÁ„o
+# Multiplica√ß√£o
 3 * 5
 
-# Divis„o
+# Divis√£o
 (5 + 5) / 2 
 
-# ExponenciaÁ„o
+# Exponencia√ß√£o
 2 ^ 5
 
-# MÛdulo (calculo do resto de uma divis„o)
+# M√≥dulo (calculo do resto de uma divis√£o)
 5 %% 2
 
-# Atribuindo uma vari·vel
+# Atribuindo uma vari√°vel
 x <- 10
 y <- 5
 z <- x+y
@@ -41,64 +44,64 @@ pets <- gatos+caes
 # Imprimindo
 pets
 
-# Como apagar uma vari·vel
+# Como apagar uma vari√°vel
 rm(pets)
 rm(z)
 
 # Como apagar tudo de uma vez
 rm(list = ls())
 
-# TIPOS B¡SICOS DE DADOS
-# Qualquer n˙mero com decimal (numÈrico)
+# TIPOS B√ÅSICOS DE DADOS
+# Qualquer n√∫mero com decimal (num√©rico)
 decimal <- 3.5
-# Qualquer n˙mero inteiro (tambÈm numÈrico)
+# Qualquer n√∫mero inteiro (tamb√©m num√©rico)
 integer <- 3
 # Logical: TRUE or FALSE
 logical <- TRUE
-# Character: palavras ou frases, maÌsculas e minÌsculas s„o diferentes
+# Character: palavras ou frases, ma√≠sculas e min√≠sculas s√£o diferentes
 character <- "gatos" # caracteres sempre entre aspas
 
-# Descobrindo tipo b·sico de dados
-# RStudio sugere funÁıes e objetos
+# Descobrindo tipo b√°sico de dados
+# RStudio sugere fun√ß√µes e objetos
 class(decimal)
 class(integer)
 class(logical)
 class(text)
-# È possÌvel usar a funÁ„o str tambÈm
+# √© poss√≠vel usar a fun√ß√£o str tamb√©m
 
-# N„o È possÌvel somar carcteres
+# N√£o √© poss√≠vel somar carcteres
 character + 4
 
-# Valores lÛgicos s„o booleans: TRUE equivale a 1 e FALSE a 0
+# Valores l√≥gicos s√£o booleans: TRUE equivale a 1 e FALSE a 0
 T+T
 F+F
 
-# Vetores: vari·veis que tÍm v·rios valores do mesmo tipo
+# Vetores: vari√°veis que t√™m v√°rios valores do mesmo tipo
 # "c" significa "combine", usa sempre que for mais de um valor
-animais <- c("c„es", "gatos", "tartarugas")
+animais <- c("c√£es", "gatos", "tartarugas")
 numeros1 <- c(1, 2, 3, 4) 
 numeros2 <- 1:100
 boolen <- c(TRUE, FALSE, TRUE)
 
-# Vamos supor que vocÍ quer calcular o quanto conseguiu economizar em 3 meses
-# Em janeiro vocÍ ganhou 109, mas gastou 96
-# Em fevereiro vocÍ ganhou 126, mas gastou 116
-# Em marÁo vocÍ ganhou 94, mas gastou 107
+# Vamos supor que voc√™ quer calcular o quanto conseguiu economizar em 3 meses
+# Em janeiro voc√™ ganhou 109, mas gastou 96
+# Em fevereiro voc√™ ganhou 126, mas gastou 116
+# Em mar√ßo voc√™ ganhou 94, mas gastou 107
 rm(list = ls())
 
-# Ent„o temos que: (cada posiÁ„o representa um mÍs)
+# Ent√£o temos que: (cada posi√ß√£o representa um m√™s)
 ganhos <- c(1090, 1260, 940, 1070)
 gastos <- c(960, 1180, 1110, 1070)
 
-# Dando nome para as posiÁıes de cada vetor
-names(ganhos) <- c("Janeiro", "Fevereiro", "MarÁo", "Abril")
-names(gastos) <- c("Janeiro", "Fevereiro", "MarÁo", "Abril")
+# Dando nome para as posi√ß√µes de cada vetor
+names(ganhos) <- c("Janeiro", "Fevereiro", "Mar√ßo", "Abril")
+names(gastos) <- c("Janeiro", "Fevereiro", "Mar√ßo", "Abril")
 # Imprimindo
 ganhos
 gastos
 
-# Uma forma mais pr·tica, È criar um vetor de nomes e atribuir ele
-meses <- c("Janeiro", "Fevereiro", "MarÁo", "Abril")
+# Uma forma mais pr√°tica, √© criar um vetor de nomes e atribuir ele
+meses <- c("Janeiro", "Fevereiro", "Mar√ßo", "Abril")
 names(ganhos) <- meses
 names(gastos) <- meses
 # Imprimindo
@@ -106,100 +109,104 @@ ganhos
 gastos
 
 # Calculando quanto economizei mensalmente
-economia_mensal <- 
+economia_mensal <- ganhos - gastos
 economia_mensal
 
 # Calculando quanto economizei em todos os meses
-economia_total <- sum()
+economia_total <- sum(economia_mensal)
 economia_total
-print(economia_total)
+print(economia_total) # n√£o precisa usar fun√ß√£o print(), mas tem gente que gosta
 
-# Selecionando uma posiÁ„o especÌfica do vetor
-# Vamos pegar o resultado apenas de um mÍs especÌfico 
-economia_marÁo <- economia_mensal[3]
+# Selecionando uma posi√ß√£o espec√≠fica do vetor
+# Vamos pegar o resultado apenas de um m√™s espec√≠fico 
+economia_mar√ßo <- economia_mensal[3]
 economia_janeiro <- economia_mensal["Janeiro"]
 primeiro_bimestre <- economia_mensal[c(1,2)]
 segundo_bimestre <- economia_mensal[3:4]
 
-# Calculando a mÈdia de ganhos
+# Calculando a m√©dia de ganhos
 mean(ganhos)
 mean(economia_mensal)
 
-# COMPARA«√O
-# Descobrindo que meses eu economizei ou n„o
-economizei <- 
-economizei <- 
+# COMPARA√á√ÉO
+# Descobrindo que meses eu economizei ou n√£o
+economizei <- ganhos > gastos 
+economizei <- economia_mensal > 0 #duas formas que levam ao memso lugar
+# economizei nada mais √© que um vetor l√≥gico (com T ou F)
 
 # Selecionando apenas os meses que economizei
-meses_positivos <- economia_mensal[]
-meses_positivos
+meses_positivos <- economia_mensal[economizei]  
+meses_positivos 
 
-# O que acontece se passar um vetor lÛgico na posiÁ„o?
+# O que acontece se passar um vetor l√≥gico na posi√ß√£o?
 economia_mensal[c(F, F, T, T)]
+# Ao fazer isso, ele retorna apenas of valores verdadeiros (TRUE)
 
 # Menor que
 1<3
-ganhos < perdas
+ganhos < gastos
 
 #Maior que
 1>3
-ganhos > perdas
+ganhos > gastos
 
 # Menor ou igual que
 1<=3
 
-ganhos <= perdas
+ganhos <= gastos
 
 # Maior ou igual que
 1>=3
-ganhos >= perdas
+ganhos >= gastos
 
 # Igual a
 1==2
-ganhos == perdas
+ganhos == gastos
 
 # Diferente de
 1!=2
-ganhos != perdas
+ganhos != gastos
 
 #===================================================================================#
-
+# limpando ambiente
 rm(list = ls())
 
-# O R possui v·rias funÁıes, que sempre s„o escritas funÁ„o()
-# Entre parenteses s„o indicados os par‚metros da funÁ„o e as vari·veis com a qual
-# a funÁ„o vai trabalhar, como j· vimos em alguns casos acima.
+# O R possui v√°rias fun√ß√µes, que sempre s√£o escritas fun√ß√£o()
+# Entre parenteses s√£o indicados os par√¢metros da fun√ß√£o e as vari√°veis com a qual
+# a fun√ß√£o vai trabalhar, como j√° vimos em alguns casos acima.
 
-# O R tem algumas funÁıes nativas, mas boa parte delas foram criados pela comunidade
-# Como R È um software livre, todo mundo pode criar suas funÁıes, e muitas delas
-# com o tempo se tornaram muito usadas. Um conjunto de funÁıes È chamdo de pacote
-# ou library em inglÍs. Para serem usadas elas precisam ser baixadas no R e carregadas
+# O R tem algumas fun√ß√µes nativas, mas boa parte delas foram criados pela comunidade
+# Como R √© um software livre, todo mundo pode criar suas fun√ß√µes, e muitas delas
+# com o tempo se tornaram muito usadas. Um conjunto de fun√ß√µes √© chamdo de pacote
+# ou library em ingl√™s. Para serem usadas elas precisam ser baixadas no R e carregadas
 # a cada uso
 
-# instalando pacotes
+# instalando pacotes - s√≥ precisa fazer uma vez
 install.packages("tidyverse")
 install.packages(c("rio", "janitor"))
+
+# de vez em quando √© bom fazer update, pode ser feito pelo menu do R
 update.packages()
 
-# carregando pacotes
+# carregando pacotes, precisa fazer toda vez que for usar
 library(rio)
 
-# para n„o precisa ficar fazendo isso toda vez, o pacote pacman pode ajudar
-install.packages("pacman")
-pacman::p_load(tidyverse, janitor, rio)
+# para n√£o precisa ficar fazendo isso toda vez, o pacote pacman pode ajudar
+install.packages("pacman") #lembrando: instalar pacotes s√≥ precisa fazer uma vez
+pacman::p_load(tidyverse, janitor, rio) #ele instala e carrega os pacotes automaticos
 
 # escolhendo lugar de onde carregar e para onde salvar os arquivos
-# pode-se usar crtl+shift+h
-getwd()
-dir()
-setwd("C:/Users/Homedesk/Desktop")
+# sua base deve estar no diret√≥rio que o R est√° trabalhando
+# pode-se usar crtl+shift+h e abrir o local diretamente (melhor forma)
+getwd() #descobre em qual diret√≥rio o R est√° trabalhando
+dir() #lista os arquivos no diret√≥rio
+setwd("C:/Users/Homedesk/Desktop") # sempre bom colocar, mesmo que use o atalho
 
-
-# importando uma base de dados usando a funÁ„o import() do pacote rio
+# importando uma base de dados usando a fun√ß√£o import() do pacote rio
 base <- import("base_de_dados.sav")
+# basta usar a fun√ß√£o import uma vez especificado o local de trabalho (setwd) 
 
-# Vizualizando o banco de dados importado
-view(base)
+
 
 
 
