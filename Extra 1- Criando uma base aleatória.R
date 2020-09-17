@@ -11,7 +11,7 @@ raca <- sample(c("branco", "pardo", "preto", "outro"), 4723, replace = T,
 idade <- sample(18:65, 4723, replace = T,
                 prob = 48:1)
 
-# Tabulando os vetores criados (tabela de frequência)
+# Tabulando os vetores criados (tabela de frequÃªncia)
 tabyl(genero) %>% 
   arrange(desc(n)) %>% 
   adorn_pct_formatting(digits = 2)
