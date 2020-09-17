@@ -178,7 +178,7 @@ rm(list = ls())
 # O R tem algumas funções nativas, mas boa parte delas foram criados pela comunidade
 # Como R é um software livre, todo mundo pode criar suas funções, e muitas delas
 # com o tempo se tornaram muito usadas. Um conjunto de funções é chamdo de pacote
-# ou library em inglês. Para serem usadas elas precisam ser baixadas no R e carregadas
+# ou package em inglês. Para serem usadas elas precisam ser baixadas no R e carregadas
 # a cada uso
 
 # instalando pacotes - só precisa fazer uma vez
