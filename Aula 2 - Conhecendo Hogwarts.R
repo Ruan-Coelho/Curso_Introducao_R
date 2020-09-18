@@ -13,7 +13,7 @@ hogwarts <- import("Hogwarts.sav")
 # olhando a base
 glimpse(hogwarts)
 
-# Resumo das variáveis no dataframe copa
+# Resumo das variáveis no dataframe 
 summary(hogwarts)
 
 # selecionado apenas variaveis (colunas) desejadas
