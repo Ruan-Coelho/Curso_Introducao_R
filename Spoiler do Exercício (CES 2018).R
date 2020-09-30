@@ -32,7 +32,7 @@ summary(ces_18)
 ces_18 <- drop_na(ces_18)
 
 ################################################################################
-# Opção 1 - Mudando os valores para characters
+# OpÃ§Ã£o 1 - Mudando os valores para characters
 ################################################################################
 
 # Recodificando as variaveis categoricas rede, grau e modalidade. Deixei
@@ -65,7 +65,7 @@ glimpse(ces_18.1)
 summary(ces_18.1)
 
 ################################################################################
-# Opção 2 - Usando factors
+# OpÃ§Ã£o 2 - Usando factors
 ################################################################################
 
 # Transformando as 6 categorias de rede em apenas tres (deixei "Especial" por)
@@ -100,25 +100,27 @@ ces_18.2 <- ces_18.2 %>%
                                         "Especial")))
                                         # 3 especificacao = nome da 3a posicao
 
-# Dando uma olhada na variavel rede e suas categorias           
+# Dando uma olhada na variavel grau e suas categorias           
 ces_18.2 %>% 
   tabyl(grau)
 
-# Factor de grau. Repara no tabyl que tem apenas 3 categorias. Isso implica que
-# se nao especificar os levels em factor, ele vai criar automaticamente apenas
-# tres levels na ordem 1, 2 e 3. No entanto, queremos que tenha um quarto level
-# que seria referente a "Bacharelado e Licenciatura"
+# Factor de grau. Repara no tabyl que tem apenas 3 categorias (1, 2 e 3. Isso 
+# implica que se nao especificar os levels em factor, ele vai criar apenas tres
+# levels na ordem 1, 2 e 3, automaticamente. No entanto, queremos que tenha um
+# quarto level que seria referente a "Bacharelado e Licenciatura"
+
+# Reparem que vai dar erro de fizermos:
 ces_18.2 <- ces_18.2 %>% 
   mutate(grau = factor(grau, labels = c("Bacharelado",  #1
                                         "Licenciatura", #2
                                         "Tecnologico",  #3
                                         "Bacharelado e Licenciatura"))) #4
 
-# Repare que vai dar erro se especificarmos 4 labels para apenas 3 levels (que
+# O erro Ã© porque estamos especificando 4 labels para apenas 3 levels (que
 # foram gerados automaticamente). Temos duas opcoes: (1) ou deixamos de fora a 
-# categoria que nao tem caso nenhum ou entao devemos especificara os 4 levels, 
-# deixando evidente que a categoria 4 eh uma possibilidade, mas apesar disso nao 
-# tivemos nenhum caso desses na base
+# categoria (4) que nao tem caso nenhum ou entao devemos especificar 4 levels, 
+# deixando evidente que a categoria 4 eh uma possibilidade, mesmo se nao tiver 
+# nenhum caso desses na base
 ces_18.2 <- ces_18.2 %>% 
   mutate(grau = factor(grau, levels = c(1, 2, 3, 4), #indicando que sao 4 levels
                              labels = c("Bacharelado",  #1
@@ -144,8 +146,7 @@ ces_18.2 <- ces_18.2 %>%
 
 # Dando uma olhada para ver como ficou tudo. Uma das vantagens de utilizar os
 # factors eh que o summary retorna o numero de casos das categorias de factors
-# Repare que em grau a categoria 4 não te nenhum caso.
-
+# Compare os dois summary
 summary(ces_18.1) # Transformando os dados em chars
 summary(ces_18.2) # Usando factors e levels
 
