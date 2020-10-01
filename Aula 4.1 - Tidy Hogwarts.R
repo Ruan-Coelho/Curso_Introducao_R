@@ -109,7 +109,7 @@ hogwarts %>%
 
 # Criando nova variavel para ver quem contribuiu com pontos
 hogwarts <- hogwarts %>%
-  mutate(contribuiu = if_else(pontos > 0,"sim", "não"))
+  mutate(contribuiu = if_else(pontos > 0,"sim", "nao"))
 
 
 # Resumo das variaveis, procurando por erros
